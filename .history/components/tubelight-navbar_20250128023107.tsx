@@ -24,13 +24,14 @@ export function NavBar({ items, className }: NavBarProps) {
   return (
     <nav 
       className={cn(
-        "fixed left-1/2 -translate-x-1/2 z-50 w-full px-4",
-        "top-6",
-        "flex justify-center",
+        "fixed left-1/2 -translate-x-1/2 z-50",
+        "bottom-4 sm:top-6 sm:bottom-auto",
+        "w-[calc(100%-2rem)] sm:w-auto",
+        "min-w-[200px]",
         className,
       )}
     >
-      <div className="flex items-center gap-2 sm:gap-3 bg-background/50 border border-border backdrop-blur-xl py-1 px-1 rounded-full shadow-lg">
+      <div className="flex items-center justify-between sm:justify-start gap-1 sm:gap-3 bg-background/50 border border-border backdrop-blur-xl p-1 rounded-full shadow-lg">
         {items.map((item) => {
           const Icon = item.icon
           const isActive = activeTab === item.name
@@ -41,7 +42,9 @@ export function NavBar({ items, className }: NavBarProps) {
               href={item.url}
               onClick={() => setActiveTab(item.name)}
               className={cn(
-                "relative cursor-pointer text-sm font-semibold px-3 sm:px-6 py-2 rounded-full transition-colors",
+                "relative cursor-pointer text-sm font-semibold rounded-full transition-colors",
+                "flex items-center justify-center",
+                "w-10 h-10 sm:w-auto sm:h-auto sm:px-6 sm:py-2",
                 "text-foreground/80 hover:text-foreground",
                 isActive && "bg-muted text-primary",
               )}
@@ -71,7 +74,7 @@ export function NavBar({ items, className }: NavBarProps) {
             </Link>
           )
         })}
-        <div className="pointer-events-auto">
+        <div className="flex items-center justify-center w-10 h-10 sm:w-auto sm:h-auto">
           <ThemeToggle />
         </div>
       </div>

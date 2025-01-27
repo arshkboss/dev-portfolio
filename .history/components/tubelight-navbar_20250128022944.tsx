@@ -24,13 +24,13 @@ export function NavBar({ items, className }: NavBarProps) {
   return (
     <nav 
       className={cn(
-        "fixed left-1/2 -translate-x-1/2 z-50 w-full px-4",
-        "top-6",
-        "flex justify-center",
+        "fixed left-1/2 -translate-x-1/2 z-50 w-full px-4 sm:px-0",
+        "bottom-4 sm:top-6 sm:bottom-auto",
+        "max-w-[calc(100%-2rem)] sm:max-w-fit",
         className,
       )}
     >
-      <div className="flex items-center gap-2 sm:gap-3 bg-background/50 border border-border backdrop-blur-xl py-1 px-1 rounded-full shadow-lg">
+      <div className="flex items-center gap-2 sm:gap-3 bg-background/50 border border-border backdrop-blur-xl py-1 px-1 rounded-full shadow-lg mx-auto">
         {items.map((item) => {
           const Icon = item.icon
           const isActive = activeTab === item.name

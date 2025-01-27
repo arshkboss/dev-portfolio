@@ -15,7 +15,7 @@ export function AboutSection() {
       >
         <Card className="max-w-4xl mx-auto">
           <CardHeader>
-            <div className="flex flex-col sm:flex-row items-center gap-8">
+            <div className="flex items-center gap-8">
               <div className="relative w-24 h-24">
                 <Image
                   src="/dev.png" // Make sure to add your image to public folder
@@ -24,9 +24,9 @@ export function AboutSection() {
                   className="object-cover rounded-full"
                 />
               </div>
-              <div className="flex-1 w-full">
-                <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
-                  <div className="text-center sm:text-left">
+              <div className="flex-1">
+                <div className="flex justify-between items-center">
+                  <div>
                     <h2 className="text-3xl font-bold">Dmitri Kalinov</h2>
                     <p className="text-muted-foreground">Senior Software Engineer</p>
                   </div>
@@ -37,7 +37,7 @@ export function AboutSection() {
                       rel="noopener noreferrer"
                       className="p-2 rounded-full hover:bg-muted transition-colors"
                     >
-                      <Github className="w-5 h-5 sm:w-6 sm:h-6" />
+                      <Github className="w-6 h-6" />
                     </a>
                     <a
                       href="https://twitter.com/yourusername"
@@ -45,13 +45,13 @@ export function AboutSection() {
                       rel="noopener noreferrer"
                       className="p-2 rounded-full hover:bg-muted transition-colors"
                     >
-                      <Twitter className="w-5 h-5 sm:w-6 sm:h-6" />
+                      <Twitter className="w-6 h-6" />
                     </a>
                     <a
                       href="mailto:your@email.com"
                       className="p-2 rounded-full hover:bg-muted transition-colors"
                     >
-                      <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
+                      <Mail className="w-6 h-6" />
                     </a>
                   </div>
                 </div>

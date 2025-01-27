@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { LucideIcon } from "lucide-react"
@@ -24,13 +24,11 @@ export function NavBar({ items, className }: NavBarProps) {
   return (
     <nav 
       className={cn(
-        "fixed left-1/2 -translate-x-1/2 z-50 w-full px-4",
-        "top-6",
-        "flex justify-center",
+        "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-6 pointer-events-none",
         className,
       )}
     >
-      <div className="flex items-center gap-2 sm:gap-3 bg-background/50 border border-border backdrop-blur-xl py-1 px-1 rounded-full shadow-lg">
+      <div className="flex items-center gap-3 bg-background/50 border border-border backdrop-blur-xl py-1 px-1 rounded-full shadow-lg pointer-events-auto min-w-fit">
         {items.map((item) => {
           const Icon = item.icon
           const isActive = activeTab === item.name
@@ -41,14 +39,14 @@ export function NavBar({ items, className }: NavBarProps) {
               href={item.url}
               onClick={() => setActiveTab(item.name)}
               className={cn(
-                "relative cursor-pointer text-sm font-semibold px-3 sm:px-6 py-2 rounded-full transition-colors",
+                "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
                 "text-foreground/80 hover:text-foreground",
                 isActive && "bg-muted text-primary",
               )}
             >
               <span className="hidden md:inline relative z-10">{item.name}</span>
               <span className="md:hidden relative z-10">
-                <Icon size={16} strokeWidth={2.5} />
+                <Icon size={18} strokeWidth={2.5} />
               </span>
               {isActive && (
                 <motion.div

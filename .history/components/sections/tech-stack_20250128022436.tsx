@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, useAnimationControls } from "framer-motion"
 import { Icon } from "@iconify/react"
 
 // Comprehensive list of modern tech stack

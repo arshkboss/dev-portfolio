@@ -100,9 +100,9 @@ export function AboutSection() {
                   </div>
                   <div className="flex gap-4">
                     {[
-                      { icon: Github, href: "https://github.com/fluidpixls" },
-                      { icon: Twitter, href: "https://twitter.com/fluidpixls" },
-                      { icon: Mail, href: "mailto:fluidpixls@gmail.com" },
+                      { icon: Github, href: "https://github.com/yourusername" },
+                      { icon: Twitter, href: "https://twitter.com/yourusername" },
+                      { icon: Mail, href: "mailto:your@email.com" },
                     ].map((social, index) => {
                       const Icon = social.icon
                       return (

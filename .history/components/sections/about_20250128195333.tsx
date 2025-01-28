@@ -16,81 +16,17 @@ export function AboutSection() {
         <Card className="max-w-4xl mx-auto">
           <CardHeader>
             <div className="flex flex-col sm:flex-row items-center gap-8">
-              <motion.div 
-                className="relative w-24 h-24 group"
-                whileHover="hover"
-              >
-                <motion.div
-                  className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary via-primary/50 to-primary opacity-75"
-                  style={{ rotate: 0 }}
-                  variants={{
-                    hover: {
-                      rotate: 360,
-                      transition: {
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "linear"
-                      }
-                    }
-                  }}
+              <div className="relative w-24 h-24">
+                <Image
+                  src="/dev.png" // Make sure to add your image to public folder
+                  alt="Developer Avatar"
+                  fill
+                  className="object-cover rounded-full"
                 />
-                
-                <motion.div
-                  className="absolute -inset-2 rounded-full bg-primary/20 blur-md"
-                  variants={{
-                    hover: {
-                      scale: [1, 1.1, 1],
-                      opacity: [0.5, 0.3, 0.5],
-                      transition: {
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }
-                    }
-                  }}
-                />
-
-                <motion.div 
-                  className="relative z-10 w-full h-full rounded-full overflow-hidden"
-                  variants={{
-                    hover: {
-                      scale: 1.05,
-                      transition: {
-                        duration: 0.3,
-                        ease: "easeOut"
-                      }
-                    }
-                  }}
-                >
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent"
-                    style={{ x: "-100%" }}
-                    variants={{
-                      hover: {
-                        x: ["-100%", "100%"],
-                        transition: {
-                          duration: 1.5,
-                          repeat: Infinity,
-                          ease: "linear"
-                        }
-                      }
-                    }}
-                  />
-                  
-                  <div className="relative w-full h-full rounded-full overflow-hidden">
-                    <Image
-                      src="/dev.png"
-                      alt="Developer Avatar"
-                      fill
-                      className="object-cover rounded-full"
-                    />
-                  </div>
-                </motion.div>
-              </motion.div>
-              
+              </div>
               <div className="flex-1 w-full">
-                <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-                  <div className="text-center sm:text-left space-y-1.5">
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
+                  <div className="text-center sm:text-left">
                     <h2 className="text-3xl font-bold">Dmitri Kalinov</h2>
                     <p className="text-muted-foreground">Senior Software Engineer</p>
                     <p className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -98,27 +34,29 @@ export function AboutSection() {
                       Based in Saint Petersburg, Russia
                     </p>
                   </div>
-                  <div className="flex gap-4">
-                    {[
-                      { icon: Github, href: "https://github.com/fluidpixls" },
-                      { icon: Twitter, href: "https://twitter.com/fluidpixls" },
-                      { icon: Mail, href: "mailto:fluidpixls@gmail.com" },
-                    ].map((social, index) => {
-                      const Icon = social.icon
-                      return (
-                        <motion.a
-                          key={social.href}
-                          href={social.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group relative p-2 rounded-full hover:bg-muted transition-colors"
-                          whileHover={{ y: -2 }}
-                        >
-                          <Icon className="w-5 h-5" />
-                          <span className="absolute inset-0 rounded-full bg-primary/10 scale-0 group-hover:scale-100 transition-transform" />
-                        </motion.a>
-                      )
-                    })}
+                  <div className="flex gap-6">
+                    <a
+                      href="https://github.com/yourusername"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-full hover:bg-muted transition-colors"
+                    >
+                      <Github className="w-5 h-5 sm:w-6 sm:h-6" />
+                    </a>
+                    <a
+                      href="https://twitter.com/yourusername"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-full hover:bg-muted transition-colors"
+                    >
+                      <Twitter className="w-5 h-5 sm:w-6 sm:h-6" />
+                    </a>
+                    <a
+                      href="mailto:your@email.com"
+                      className="p-2 rounded-full hover:bg-muted transition-colors"
+                    >
+                      <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
+                    </a>
                   </div>
                 </div>
               </div>

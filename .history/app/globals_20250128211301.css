@@ -26,7 +26,6 @@
     --radius: 0.5rem;
     --transition-duration: 200ms;
     --scrollbar-width: calc(100vw - 100%);
-    --removed-scroll-width: 0px;
   }
 
   .dark {
@@ -111,12 +110,25 @@
   }
 }
 
-/* Calculate scrollbar width on mount */
-:root {
-  --removed-scroll-width: 0px;
+/* Always show scrollbar to prevent layout shifts */
+html {
+  scrollbar-gutter: stable;
 }
 
-/* When dialog is open */
-body[style*="overflow: hidden"] {
-  padding-right: var(--removed-scroll-width);
+/* Optional: Style the scrollbar for better aesthetics */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--muted-foreground) / 0.2);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--muted-foreground) / 0.3);
 } 

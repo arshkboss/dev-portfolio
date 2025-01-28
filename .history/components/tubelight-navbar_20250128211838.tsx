@@ -42,9 +42,9 @@ export function NavBar({ items, className }: NavBarProps) {
                 href={item.url}
                 onClick={() => setActiveTab(item.name)}
                 className={cn(
-                  "relative cursor-pointer text-sm font-semibold px-3 sm:px-6 py-2 rounded-full transition-all duration-300",
+                  "relative cursor-pointer text-sm font-semibold px-3 sm:px-6 py-2 rounded-full transition-colors",
                   "text-foreground/80 hover:text-foreground",
-                  isActive && "text-primary",
+                  isActive && "bg-muted text-primary",
                 )}
               >
                 <span className="hidden md:inline relative z-10">{item.name}</span>
@@ -55,7 +55,6 @@ export function NavBar({ items, className }: NavBarProps) {
                   <motion.div
                     layoutId="lamp"
                     className="absolute inset-0 w-full bg-primary/5 rounded-full -z-10"
-                    initial={false}
                     transition={{
                       type: "spring",
                       stiffness: 300,

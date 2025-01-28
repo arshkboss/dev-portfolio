@@ -60,7 +60,7 @@ export function TechStackSection() {
           {/* Main container */}
           <div className="relative  bg-background/95 p-6 overflow-hidden">
             {/* Left inset shadow */}
-            <div className="absolute left-0 top-0 bottom-0 w-5
+            <div className="absolute left-0 top-0 bottom-0 w-10
               bg-gradient-to-r from-black/[0.05] to-transparent 
               " 
             />

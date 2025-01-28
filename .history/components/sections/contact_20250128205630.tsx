@@ -67,7 +67,7 @@ export function ContactSection() {
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3, delay: index * 0.1 }}
-                        className="group bg-muted hover:bg-primary/5 hover:shadow-sm duration-300 rounded-full px-4 py-3 transition-colors"
+                        className="group bg-muted hover:bg-primary/5 rounded-full px-4 py-3 transition-colors"
                       >
                         <div className="flex items-center gap-3">
                           <div className="p-2 rounded-full bg-background group-hover:bg-primary/10 transition-colors">

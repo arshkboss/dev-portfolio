@@ -58,18 +58,18 @@ export function TechStackSection() {
         <h2 className="text-3xl font-bold mb-12 text-left">Tech Stack</h2>
         <div className="relative">
           {/* Main container */}
-          <div className="relative  bg-background/95 p-6 overflow-hidden">
+          <div className="relative rounded-xl bg-background/95 p-6 overflow-hidden">
             {/* Left inset shadow */}
-            <div className="absolute left-0 top-0 bottom-0 w-5
-              bg-gradient-to-r from-black/[0.05] to-transparent 
-              " 
+            <div className="absolute left-0 top-0 bottom-0 w-20 
+              bg-gradient-to-r from-black/[0.07] to-transparent 
+              blur-[2px]" 
             />
             
-            {/* Right inset shadow 
+            {/* Right inset shadow */}
             <div className="absolute right-0 top-0 bottom-0 w-20 
-              bg-gradient-to-l from-black/[0.5] to-transparent 
+              bg-gradient-to-l from-black/[0.07] to-transparent 
               blur-[2px]" 
-            />/**/}
+            />
             
             {/* Content container */}
             <div className="relative">
@@ -95,9 +95,9 @@ export function TechStackSection() {
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
                     <div className="w-12 h-12 flex items-center justify-center relative
-                       rounded-lg backdrop-blur-sm
-                      
-                      "
+                      bg-muted/50 rounded-lg backdrop-blur-sm
+                      hover:bg-muted/80 transition-all duration-300
+                      shadow-[0_2px_10px_rgba(0,0,0,0.1)]"
                     >
                       <Icon icon={tech.icon} className="w-8 h-8" />
                     </div>

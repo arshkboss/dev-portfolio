@@ -25,8 +25,6 @@
     --ring: 240 5.9% 10%;
     --radius: 0.5rem;
     --transition-duration: 200ms;
-    --scrollbar-width: calc(100vw - 100%);
-    --removed-scroll-width: 0px;
   }
 
   .dark {
@@ -109,14 +107,4 @@
     mask-composite: exclude;
     pointer-events: none;
   }
-}
-
-/* Calculate scrollbar width on mount */
-:root {
-  --removed-scroll-width: 0px;
-}
-
-/* When dialog is open */
-body[style*="overflow: hidden"] {
-  padding-right: var(--removed-scroll-width);
 } 

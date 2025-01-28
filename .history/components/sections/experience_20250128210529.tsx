@@ -61,7 +61,7 @@ export function ExperienceSection() {
   return (
     <section id="projects" className="py-20 relative z-0">
       <h2 className="text-3xl font-bold mb-12 text-start max-w-4xl mx-auto">Engineering Achievements</h2>
-      <div className="relative max-w-4xl mx-auto overflow-x-hidden">
+      <div className="relative max-w-4xl mx-auto">
         {/* Timeline line - aligned to left */}
         <div className="absolute left-0 h-full w-0.5 bg-gradient-to-b from-primary/50 to-primary/5" />
 
@@ -80,7 +80,7 @@ export function ExperienceSection() {
               
               {/* Project Card - always on right */}
               <div className="ml-8 w-full" onClick={() => setSelectedProject(project)}>
-                <div className="group cursor-pointer bg-white/5 rounded-lg p-4 shadow-md hover:shadow-lg transition-all">
+                <div className="group cursor-pointer bg-white/5 rounded-lg p-4 shadow-md  hover:shadow-lg transition-all">
                   <div className="relative overflow-hidden rounded-lg h-[300px]">
                     <Image
                       src={project.image}
@@ -92,11 +92,11 @@ export function ExperienceSection() {
                       <span className="text-white">View Details</span>
                     </div>
                   </div>
-                  <div className="mt-4">
+                  <div className="mt-">
                     <h3 className="text-xl font-semibold">{project.title}</h3>
-                    <p className="text-muted-foreground pt-1  ">{project.company}</p>
-                    <p className="text-sm text-muted-foreground ">{project.role}</p>
-                    <p className="text-sm text-muted-foreground pt-1">{project.duration}</p>
+                    <p className="text-muted-foreground">{project.company}</p>
+                    <p className="text-sm text-muted-foreground">{project.role}</p>
+                    <p className="text-sm text-muted-foreground">{project.duration}</p>
                     
                     <div className="flex flex-wrap gap-2 mt-2">
                       {project.techStack.slice(0, 3).map((tech) => (
@@ -113,15 +113,15 @@ export function ExperienceSection() {
         </div>
       </div>
 
-      {/* Project Details Dialog - Improved mobile padding */}
+      {/* Project Details Dialog */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto sm:p-6 p-4">
+        <DialogContent className="max-w-2xl z-[200]">
           {selectedProject && (
             <>
               <DialogHeader>
-                <DialogTitle className="text-xl sm:text-2xl">{selectedProject.title}</DialogTitle>
+                <DialogTitle>{selectedProject.title}</DialogTitle>
               </DialogHeader>
-              <div className="relative h-48 sm:h-64">
+              <div className="relative h-48 md:h-64">
                 <Image
                   src={selectedProject.image}
                   alt={selectedProject.title}
@@ -129,21 +129,17 @@ export function ExperienceSection() {
                   className="object-cover rounded-lg"
                 />
               </div>
-              <div className="space-y-4 sm:space-y-6">
+              <div className="space-y-4">
                 <div>
-                  <h4 className="font-semibold text-lg">Role</h4>
+                  <h4 className="font-semibold">Role</h4>
                   <p className="text-muted-foreground">{selectedProject.role}</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-lg">Description</h4>
+                  <h4 className="font-semibold">Description</h4>
                   <p className="text-muted-foreground">{selectedProject.longDescription}</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-lg">Duration</h4>
-                  <p className="text-muted-foreground">{selectedProject.duration}</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-lg">Tech Stack</h4>
+                  <h4 className="font-semibold">Tech Stack</h4>
                   <div className="flex flex-wrap gap-2 mt-2">
                     {selectedProject.techStack.map((tech) => (
                       <Badge key={tech} variant="secondary">

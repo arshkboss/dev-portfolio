@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
@@ -57,6 +57,15 @@ const projects: Project[] = [
 
 export function ExperienceSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+
+  // Handle scrollbar compensation when dialog opens/closes
+  useEffect(() => {
+    if (selectedProject) {
+      document.documentElement.classList.add('dialog-open')
+    } else {
+      document.documentElement.classList.remove('dialog-open')
+    }
+  }, [selectedProject])
 
   return (
     <section id="projects" className="py-20 relative z-0">

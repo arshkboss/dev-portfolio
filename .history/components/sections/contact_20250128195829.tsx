@@ -60,14 +60,15 @@ export function ContactSection() {
                     {[
                       { icon: Mail, text: "dmitri@example.com", href: "mailto:dmitri@example.com" },
                       { icon: Phone, text: "+7 (123) 456-789", href: "tel:+7123456789" },
-                      { icon: MapPin, text: "Saint Petersburg, Russia" }
+                      { icon: MapPin, text: "Saint Petersburg, Russia" },
+                      { icon: Clock, text: "UTC+3 (Moscow Time)" },
                     ].map((item, index) => (
                       <motion.div
                         key={item.text}
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3, delay: index * 0.1 }}
-                        className="group bg-muted hover:bg-primary/5 hover:shadow-sm duration-300 rounded-full px-4 py-3 transition-colors"
+                        className="group bg-muted hover:bg-primary/5 rounded-full px-4 py-3 transition-colors"
                       >
                         <div className="flex items-center gap-3">
                           <div className="p-2 rounded-full bg-background group-hover:bg-primary/10 transition-colors">

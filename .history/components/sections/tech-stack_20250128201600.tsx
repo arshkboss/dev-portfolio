@@ -57,22 +57,20 @@ export function TechStackSection() {
       >
         <h2 className="text-3xl font-bold mb-12 text-left">Tech Stack</h2>
         <div className="relative">
-          {/* Main container */}
-          <div className="relative  bg-background/95 p-6 overflow-hidden">
-            {/* Left inset shadow */}
-            <div className="absolute left-0 top-0 bottom-0 w-5
-              bg-gradient-to-r from-black/[0.05] to-transparent 
-              " 
-            />
+          {/* Outer container with inset shadow */}
+          <div className="relative rounded-xl bg-background/80 backdrop-blur-sm p-6
+            shadow-[inset_0_0_15px_rgba(0,0,0,0.1)]
+            before:absolute before:inset-0 before:rounded-xl before:shadow-[inset_0_0_8px_rgba(0,0,0,0.2)]
+            after:absolute after:inset-0 after:rounded-xl after:bg-gradient-to-r after:from-background/80 after:via-transparent after:to-background/80"
+          >
+            {/* Left fade gradient */}
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background/90 to-transparent z-10" />
             
-            {/* Right inset shadow 
-            <div className="absolute right-0 top-0 bottom-0 w-20 
-              bg-gradient-to-l from-black/[0.5] to-transparent 
-              blur-[2px]" 
-            />/**/}
+            {/* Right fade gradient */}
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background/90 to-transparent z-10" />
             
             {/* Content container */}
-            <div className="relative">
+            <div className="relative overflow-hidden">
               <motion.div
                 animate={{
                   x: [0, "-100%"]
@@ -95,11 +93,11 @@ export function TechStackSection() {
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
                     <div className="w-12 h-12 flex items-center justify-center relative
-                       rounded-lg backdrop-blur-sm
-                      
-                      "
+                      before:absolute before:inset-0 before:rounded-lg before:bg-muted/50 before:backdrop-blur-sm
+                      hover:before:bg-muted/80 before:transition-colors
+                      shadow-[0_2px_10px_rgba(0,0,0,0.1)]"
                     >
-                      <Icon icon={tech.icon} className="w-8 h-8" />
+                      <Icon icon={tech.icon} className="w-8 h-8 relative z-10" />
                     </div>
                     <span className="text-sm font-medium">{tech.name}</span>
                   </motion.div>
@@ -108,8 +106,8 @@ export function TechStackSection() {
             </div>
           </div>
 
-          {/* Subtle bottom shadow */}
-          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-[95%] h-2 bg-black/5 blur-lg rounded-full" />
+          {/* Bottom shadow for depth */}
+          <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-[98%] h-4 bg-black/10 blur-lg rounded-full" />
         </div>
       </motion.div>
     </section>

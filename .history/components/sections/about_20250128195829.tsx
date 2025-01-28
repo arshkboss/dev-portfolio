@@ -18,74 +18,16 @@ export function AboutSection() {
             <div className="flex flex-col sm:flex-row items-center gap-8">
               <motion.div 
                 className="relative w-24 h-24 group"
-                whileHover="hover"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                <motion.div
-                  className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary via-primary/50 to-primary opacity-75"
-                  style={{ rotate: 0 }}
-                  variants={{
-                    hover: {
-                      rotate: 360,
-                      transition: {
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "linear"
-                      }
-                    }
-                  }}
+                <Image
+                  src="/dev.png"
+                  alt="Developer Avatar"
+                  fill
+                  className="object-cover rounded-full transition-all duration-300 group-hover:shadow-xl group-hover:shadow-primary/25"
                 />
-                
-                <motion.div
-                  className="absolute -inset-2 rounded-full bg-primary/20 blur-md"
-                  variants={{
-                    hover: {
-                      scale: [1, 1.1, 1],
-                      opacity: [0.5, 0.3, 0.5],
-                      transition: {
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }
-                    }
-                  }}
-                />
-
-                <motion.div 
-                  className="relative z-10 w-full h-full rounded-full overflow-hidden"
-                  variants={{
-                    hover: {
-                      scale: 1.05,
-                      transition: {
-                        duration: 0.3,
-                        ease: "easeOut"
-                      }
-                    }
-                  }}
-                >
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent"
-                    style={{ x: "-100%" }}
-                    variants={{
-                      hover: {
-                        x: ["-100%", "100%"],
-                        transition: {
-                          duration: 1.5,
-                          repeat: Infinity,
-                          ease: "linear"
-                        }
-                      }
-                    }}
-                  />
-                  
-                  <div className="relative w-full h-full rounded-full overflow-hidden">
-                    <Image
-                      src="/dev.png"
-                      alt="Developer Avatar"
-                      fill
-                      className="object-cover rounded-full"
-                    />
-                  </div>
-                </motion.div>
+                <div className="absolute inset-0 rounded-full bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity" />
               </motion.div>
               
               <div className="flex-1 w-full">
@@ -100,9 +42,9 @@ export function AboutSection() {
                   </div>
                   <div className="flex gap-4">
                     {[
-                      { icon: Github, href: "https://github.com/fluidpixls" },
-                      { icon: Twitter, href: "https://twitter.com/fluidpixls" },
-                      { icon: Mail, href: "mailto:fluidpixls@gmail.com" },
+                      { icon: Github, href: "https://github.com/yourusername" },
+                      { icon: Twitter, href: "https://twitter.com/yourusername" },
+                      { icon: Mail, href: "mailto:your@email.com" },
                     ].map((social, index) => {
                       const Icon = social.icon
                       return (

@@ -28,7 +28,7 @@ export function ContactSection() {
     },
   }
 
-  const itemAnimation = {
+  const item = {
     hidden: { opacity: 0, x: 0 },
     show: { opacity: 1, x: 0 }
   }
@@ -83,22 +83,22 @@ export function ContactSection() {
                       { icon: Mail, text: "dmitri.devk@gmail.com", href: "mailto:fluidpixls@gmail.com" },
                       { icon: Phone, text: "+7 (911) 911-911", href: "tel:+7911911911" },
                       { icon: MapPin, text: "Saint Petersburg, Russia" }
-                    ].map((contactItem) => (
+                    ].map((item) => (
                       <motion.div
-                        key={contactItem.text}
-                        variants={itemAnimation}
+                        key={item.text}
+                        variants={item}
                         className="group bg-muted hover:bg-primary/5 hover:shadow-sm duration-300 rounded-full px-4 py-3 transition-colors"
                       >
                         <div className="flex items-center gap-3">
                           <div className="p-2 rounded-full bg-background group-hover:bg-primary/10 transition-colors">
-                            <contactItem.icon className="w-4 h-4" />
+                            <item.icon className="w-4 h-4" />
                           </div>
-                          {contactItem.href ? (
-                            <a href={contactItem.href} className="text-sm hover:text-primary transition-colors">
-                              {contactItem.text}
+                          {item.href ? (
+                            <a href={item.href} className="text-sm hover:text-primary transition-colors">
+                              {item.text}
                             </a>
                           ) : (
-                            <span className="text-sm">{contactItem.text}</span>
+                            <span className="text-sm">{item.text}</span>
                           )}
                         </div>
                       </motion.div>

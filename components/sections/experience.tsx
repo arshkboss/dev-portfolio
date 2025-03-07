@@ -1,22 +1,27 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Badge } from "@/components/ui/badge"
-import { motion } from "framer-motion"
+import { useState } from "react";
+import Image from "next/image";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
 
 interface Project {
-  id: number
-  title: string
-  company: string
-  duration: string
-  role: string
-  description: string
-  longDescription: string
-  techStack: string[]
-  image: string
-  link?: string
+  id: number;
+  title: string;
+  company: string;
+  duration: string;
+  role: string;
+  description: string;
+  longDescription: string;
+  techStack: string[];
+  image: string;
+  link?: string;
 }
 
 const projects: Project[] = [
@@ -26,10 +31,12 @@ const projects: Project[] = [
     company: "QuantTech Solutions",
     duration: "Jan 2023 - Present",
     role: "Lead System Architect",
-    description: "Architected a high-frequency trading platform processing 1M+ transactions per second",
-    longDescription: "Engineered a cutting-edge trading platform utilizing Rust and CUDA for ultra-low latency operations. Implemented advanced algorithmic trading strategies and real-time market analysis systems.",
+    description:
+      "Architected a high-frequency trading platform processing 1M+ transactions per second",
+    longDescription:
+      "Engineered a cutting-edge trading platform utilizing Rust and CUDA for ultra-low latency operations. Implemented advanced algorithmic trading strategies and real-time market analysis systems.",
     techStack: ["Rust", "CUDA", "C++", "PostgreSQL", "Redis", "Kubernetes"],
-    image: "/projects/trading.png"
+    image: "/projects/trading.png",
   },
   {
     id: 2,
@@ -37,10 +44,18 @@ const projects: Project[] = [
     company: "AI Dynamics",
     duration: "June 2022 - Dec 2022",
     role: "Senior Backend Engineer",
-    description: "Built distributed machine learning infrastructure handling petabytes of data",
-    longDescription: "Developed a scalable ML pipeline processing petabytes of data using distributed computing. Implemented fault-tolerant architecture with automatic recovery mechanisms.",
-    techStack: ["Python", "TensorFlow", "Kubernetes", "Apache Kafka", "MongoDB"],
-    image: "/projects/ml-pipeline.png"
+    description:
+      "Built distributed machine learning infrastructure handling petabytes of data",
+    longDescription:
+      "Developed a scalable ML pipeline processing petabytes of data using distributed computing. Implemented fault-tolerant architecture with automatic recovery mechanisms.",
+    techStack: [
+      "Python",
+      "TensorFlow",
+      "Kubernetes",
+      "Apache Kafka",
+      "MongoDB",
+    ],
+    image: "/projects/ml-pipeline.png",
   },
   {
     id: 3,
@@ -48,19 +63,23 @@ const projects: Project[] = [
     company: "CryptoTech Labs",
     duration: "Jan 2022 - May 2022",
     role: "Protocol Engineer",
-    description: "Developed core protocol features for a Layer 2 blockchain solution",
-    longDescription: "Implemented critical protocol-level features for a high-performance Layer 2 blockchain. Optimized consensus mechanisms and reduced transaction confirmation times by 70%.",
+    description:
+      "Developed core protocol features for a Layer 2 blockchain solution",
+    longDescription:
+      "Implemented critical protocol-level features for a high-performance Layer 2 blockchain. Optimized consensus mechanisms and reduced transaction confirmation times by 70%.",
     techStack: ["Solidity", "Rust", "Go", "WebAssembly", "TypeScript"],
-    image: "/projects/blockchain.png"
-  }
-]
+    image: "/projects/blockchain.png",
+  },
+];
 
 export function ExperienceSection() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
     <section id="projects" className="py-20 relative z-0">
-      <h2 className="text-3xl font-bold mb-12 text-start max-w-4xl mx-auto">Engineering Achievements</h2>
+      <h2 className="text-3xl font-bold mb-12 text-start max-w-4xl mx-auto">
+        Engineering Achievements
+      </h2>
       <div className="relative max-w-4xl mx-auto overflow-x-hidden">
         {/* Timeline line - aligned to left */}
         <div className="absolute left-0 h-full w-0.5 bg-gradient-to-b from-primary/50 to-primary/5" />
@@ -77,9 +96,12 @@ export function ExperienceSection() {
             >
               {/* Timeline Dot */}
               <div className="absolute left-0 transform -translate-x-1/2 w-3 h-3 bg-primary rounded-full" />
-              
+
               {/* Project Card - always on right */}
-              <div className="ml-8 w-full" onClick={() => setSelectedProject(project)}>
+              <div
+                className="ml-8 w-full"
+                onClick={() => setSelectedProject(project)}
+              >
                 <div className="group cursor-pointer bg-white/5 rounded-lg p-4 shadow-md hover:shadow-lg transition-all">
                   <div className="relative overflow-hidden rounded-lg h-[300px]">
                     <Image
@@ -94,10 +116,16 @@ export function ExperienceSection() {
                   </div>
                   <div className="mt-4">
                     <h3 className="text-xl font-semibold">{project.title}</h3>
-                    <p className="text-muted-foreground pt-1  ">{project.company}</p>
-                    <p className="text-sm text-muted-foreground ">{project.role}</p>
-                    <p className="text-sm text-muted-foreground pt-1">{project.duration}</p>
-                    
+                    <p className="text-muted-foreground pt-1  ">
+                      {project.company}
+                    </p>
+                    <p className="text-sm text-muted-foreground ">
+                      {project.role}
+                    </p>
+                    <p className="text-sm text-muted-foreground pt-1">
+                      {project.duration}
+                    </p>
+
                     <div className="flex flex-wrap gap-2 mt-2">
                       {project.techStack.slice(0, 3).map((tech) => (
                         <Badge key={tech} variant="secondary">
@@ -114,12 +142,17 @@ export function ExperienceSection() {
       </div>
 
       {/* Project Details Dialog - Improved mobile padding */}
-      <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto sm:p-6 p-4">
+      <Dialog
+        open={!!selectedProject}
+        onOpenChange={() => setSelectedProject(null)}
+      >
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto sm:p-6 p-4 rounded-md">
           {selectedProject && (
             <>
               <DialogHeader>
-                <DialogTitle className="text-xl sm:text-2xl">{selectedProject.title}</DialogTitle>
+                <DialogTitle className="text-xl sm:text-2xl">
+                  {selectedProject.title}
+                </DialogTitle>
               </DialogHeader>
               <div className="relative h-48 sm:h-64">
                 <Image
@@ -132,15 +165,21 @@ export function ExperienceSection() {
               <div className="space-y-4 sm:space-y-6">
                 <div>
                   <h4 className="font-semibold text-lg">Role</h4>
-                  <p className="text-muted-foreground">{selectedProject.role}</p>
+                  <p className="text-muted-foreground">
+                    {selectedProject.role}
+                  </p>
                 </div>
                 <div>
                   <h4 className="font-semibold text-lg">Description</h4>
-                  <p className="text-muted-foreground">{selectedProject.longDescription}</p>
+                  <p className="text-muted-foreground">
+                    {selectedProject.longDescription}
+                  </p>
                 </div>
                 <div>
                   <h4 className="font-semibold text-lg">Duration</h4>
-                  <p className="text-muted-foreground">{selectedProject.duration}</p>
+                  <p className="text-muted-foreground">
+                    {selectedProject.duration}
+                  </p>
                 </div>
                 <div>
                   <h4 className="font-semibold text-lg">Tech Stack</h4>
@@ -168,5 +207,5 @@ export function ExperienceSection() {
         </DialogContent>
       </Dialog>
     </section>
-  )
+  );
 }
